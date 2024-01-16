@@ -1,0 +1,114 @@
+.background-perso{
+    width: 100vw;
+    height: 80vh;
+    background: url(../maquette_cv_commun/assets/img/Background\ img.png)
+    no-repeat
+    center;
+}
+
+.div-nav-bar > a > img {
+    height: 100px;
+}
+
+#para-card{
+    margin-top: none;
+    margin-bottom: none;
+}
+
+.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+  }
+
+.section-img{
+    margin: 75px auto;
+}
+
+.card-team{
+    transition: .3s ease-in-out;
+}
+.card-team:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: .3s ease-in-out;
+}
+
+.navbar-nav > .nav-item:last-child > a{
+    color: #0d6efd;
+}
+
+.hero-product{
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#hero-pipeline{
+    background-image: url(./assets/img/bg-pipeline.webp);
+}
+#hero-seo{
+    background-image: url(./assets/img/referencement.webp);
+}
+#hero-webapp{
+    background-image: url(./assets/img/code.webp);
+}
+
+.parent-blur{
+    position: relative;
+}
+
+.blur-dark{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    right: -10px;
+    z-index: 0;
+    filter: blur(40px);
+}
+
+.div-text{
+    position: relative;
+    z-index: 2;
+}
+
+#footer{
+    min-height: 150px;
+    margin-top: 150px;
+}
+
+.icon-size{
+    max-width: 100px;
+}
+
+#card-business{
+    z-index: 2;
+    transform: scale(1.05);
+    animation: animation_out .3s ease-in-out;
+}
+#card-business:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    animation: animation_enter .3s ease-in-out;
+}
+
+@keyframes animation_enter {
+    from{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}
+
+@keyframes animation_out {
+    0%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
