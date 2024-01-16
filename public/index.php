@@ -1,18 +1,22 @@
 <?php
 
-$pageCourant = $_SERVER['REQUEST_URI'];
+$router = $_GET["page"];
+echo($router);
 
-switch($pageCourant){
-    case "/":
-        require './index.php';
+define('VIEW_PATH', dirname(__DIR__) . './pages');
+
+
+switch($router){
+    case 'cv':
+        require '../pages/page.php';
         break;
-    case "/hobbie.php":
-        require './hobbie.php';
+    case 'contact':
+        require '../pages/contact.php';
         break;
-    case "/contact.php":
-        require './contact.php';
+    case 'hobbies':
+        require '../pages/hobby.php';
         break;
     default:
-        require './notfound.php';
+        require '../pages/notfound.php';
         break;
-}
+    }

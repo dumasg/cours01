@@ -38,7 +38,7 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="div-nav-bar container-fluid">
-      <a class="navbar-brand" href="./index.html"><img src="../assets/logo/Rectangle 34.png" alt="logo_entreprise"></a>
+      <a class="navbar-brand" href="./page.php"><img src="../assets/logo/Rectangle 34.png" alt="logo_entreprise"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,13 +46,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../index.php">Accueil</a>
+            <a class="nav-link active" aria-current="page" href="index.php?page=cv">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../hobbie.php">Hobby</a>
+            <a class="nav-link" href="index.php?page=hobbies">Hobby</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../contact.php">Contact</a>
+            <a class="nav-link" href="index.php?page=contact">Contact</a>
           </li>
         </ul>
       </div>
