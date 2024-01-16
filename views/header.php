@@ -4,13 +4,19 @@
 
     $metaTitle = "Site CV";
 
-    echo($pageCourant);
+    $metaDescription = "CV DevOps";
+
     if($pageCourant == "/" || $pageCourant == "/index.php"){
         $metaTitle = "CV Gérémy";
+        $metaDescription = "CV DevOps Gérémy Alternant";
     }else if($pageCourant == "/hobbie.php"){
         $metaTitle = "Mes hobbies";
+        $metaDescription = "CV DevOps Gérémy Alternant hobbie loisir";
+
     }else if($pageCourant == "/contact.php"){
         $metaTitle = "Contactez-moi !";
+        $metaDescription = "CV DevOps Gérémy Alternant contact prestation";
+
     }
 
 ?>
@@ -20,7 +26,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="CV DevOps Pipeline déploiement continu Audit SEO Webapp">
+  <meta name="description" content="<?= $metaDescription ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $metaTitle ?></title>
   <link rel="stylesheet" href="../assets/style.css">
