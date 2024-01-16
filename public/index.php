@@ -1,7 +1,6 @@
 <?php
 
 $router = $_GET["page"];
-echo($router);
 
 define('VIEW_PATH', dirname(__DIR__) . './pages');
 
