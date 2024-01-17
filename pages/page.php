@@ -1,12 +1,12 @@
 <?php
-    include '../views/header.php';
+    require '../views/header.php';
 ?>
 
 
   <section
     class="container d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly align-items-center mt-5">
     <div style="width: 300px;">
-      <img class="img-thumbnail" src="../assets/photos/geremy 2.webp" alt="">
+      <img class="img-thumbnail" src="/assets/logo/geremy2.jpg" alt="">
     </div>
     <div class="mt-3">
       <h2>Gérémy D.</h2>

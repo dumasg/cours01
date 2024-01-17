@@ -1,21 +1,20 @@
 <?php
 
-$router = $_GET["page"];
+define('VIEW_PATH', "../pages/");
 
-define('VIEW_PATH', dirname(__DIR__) . './pages');
-
-
+$router = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
+$router = $router ?? 'cv';
 switch($router){
     case 'cv':
-        require '../pages/page.php';
+        require VIEW_PATH .'page.php';
         break;
     case 'contact':
-        require '../pages/contact.php';
+        require VIEW_PATH . 'contact.php' ;
         break;
     case 'hobbies':
-        require '../pages/hobby.php';
+        require VIEW_PATH . 'hobby.php';
         break;
     default:
-        require '../pages/notfound.php';
+        require VIEW_PATH . 'notfound.php';
         break;
     }

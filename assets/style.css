@@ -1,3 +1,4 @@
+
 .background-perso{
     width: 100vw;
     height: 80vh;
@@ -111,4 +112,21 @@
     100%{
         transform: scale(1.05);
     }
+}
+#formulaire{
+    max-width: 1000px !important;
+    margin: 0 auto;
+}
+
+.mainFormulaire{
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    > h2{
+        margin-bottom: 30px;
+    }
+}
+
+input, textarea{
+    background-color: #c9ccd1 !important;
 }
