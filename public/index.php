@@ -1,5 +1,14 @@
 <?php
 
+
+session_start();
+$id_session = session_id();
+$userVisited = [];
+
+if(!array_search($id_session, $userVisited)){
+    array_push($userVisited, $id_session);
+}
+
 define('VIEW_PATH', "../pages/");
 
 $router = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);

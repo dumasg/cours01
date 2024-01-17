@@ -1,3 +1,4 @@
+<?php global$userVisited; ?>
 <footer id="footer" class="bg-secondary bg-gradient pt-5">
     <div class="container">
       <h2 class="text-white fs-2">CODA</h2>
@@ -6,6 +7,7 @@
         <li><a href="../sitemap.xml" class="text-white">Plan du site</a></li>
         <li><a href="../mentionlegales.html" class="text-white">Mention légales</a></li>
       </ul>
+        <p>Nous avez eu : <?= count($userVisited) ?> visites</p>
     </div>
   </footer>
 
