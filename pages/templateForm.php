@@ -1,5 +1,5 @@
 <?php
-    // var_dump($_POST);
+     //var_dump($_POST);
 ?>
 
 
@@ -26,10 +26,11 @@
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <?php if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL)){ ?>
-            <input type="email" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
+            <input type="text" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
             <span>L'email est invalide</span>
         <?php }else{ ?>
-            <input type="email" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
+            <input type="text" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
+            <span>L'email est valide</span>
             <?php } ?>
     </div>
     <div class="mb-3">
