@@ -20,7 +20,6 @@
 <main class="mainFormulaire">
 
 <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){?>
-
     <?php
     $data = $_POST;
 
@@ -28,18 +27,18 @@
       foreach ($data as $key => $value){
           if($key == "genre"){
               $value = htmlspecialchars($value, ENT_QUOTES);
-              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
           }
           if($key == "name" || $key == "firstName" || $key == "message") {
               $value = htmlspecialchars($value);
-              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
           }
           if ($key == "email"){
-              $dataClean[$key."Clean"] = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+              $dataClean[$key] = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
           }
           if ($key == "demande_service"){
               $value = htmlspecialchars($value, ENT_QUOTES);
-              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
           }
       }
 
@@ -56,9 +55,13 @@
                   $formValad = false;
                   $checkingError[$key] = false;
               }
+          }elseif ($key == "email"){
+              if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
+                  $checkingError[$key] = false;
+              }
           }
           else if($key == "demande_service"){
-              if ($value != "proposition_emploi" && $value != "demande_information" && $value != "prestations"){
+              if ($value == "proposition_emploi" || $value == "demande_information" || $value == "prestations"){
                   $formValad = false;
                   $checkingError[$key] = false;
               }

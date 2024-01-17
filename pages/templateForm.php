@@ -15,25 +15,26 @@ global$checkingError;
         </select>
     </div>
     <div class="mb-3">
+
         <label for="name" class="form-label">Nom</label>
         <input type="text" name="name" class="form-control form-text" id="name" aria-describedby="userName">
-        <?php if($checkingError['name'] == false){
-        ?> <span>Votre nom ne peut pas être vide</span> <?php
-        } ?>
+        <?php if($checkingError['name'] == false) { ?>
+        <span>Votre nom ne peut pas être vide</span>
+        <?php } ?>
     </div>
     <div class="mb-3">
         <label for="firstName" class="form-label">Prénom</label>
         <input type="text" name="firstName" class="form-control form-text" id="firstName" aria-describedby="userFirstName">
+        <?php if($checkingError['firstName'] == false) { ?>
+            <span>Votre prénom ne peut pas être vide</span>
+        <?php } ?>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <?php if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL)){ ?>
-            <input type="text" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
-            <span>L'email est invalide</span>
-        <?php }else{ ?>
-            <input type="text" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
-            <span>L'email est valide</span>
-            <?php } ?>
+        <input type="text" name="email" class="form-control form-text" id="email" aria-describedby="userEmail">
+        <?php if($checkingError['email'] == false) { ?>
+        <span>Votre email n'est pas valide !</span>
+        <?php } ?>
     </div>
     <div class="mb-3">
         <div class="form-check">
@@ -54,10 +55,16 @@ global$checkingError;
                 Prestations
             </label>
         </div>
+        <?php if($checkingError['demande_service'] == false) { ?>
+            <span>Votre demande n'est pas valide !</span>
+        <?php } ?>
     </div>
     <div class="form-floating mb-3">
         <textarea name="message" class="form-control" placeholder="Votre message ici" id="message"></textarea>
         <label for="message">Votre message</label>
+        <?php if($checkingError['message'] == false) { ?>
+            <span>Votre message ne peut pas être vide !</span>
+        <?php } ?>
     </div class="mb-3">
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
