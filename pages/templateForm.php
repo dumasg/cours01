@@ -1,8 +1,7 @@
 <?php
-     //var_dump($_POST);
+//var_dump($_POST);
+global$checkingError;
 ?>
-
-
 
 
 <h2>Formulaire de contact : </h2>
@@ -18,6 +17,9 @@
     <div class="mb-3">
         <label for="name" class="form-label">Nom</label>
         <input type="text" name="name" class="form-control form-text" id="name" aria-describedby="userName">
+        <?php if($checkingError['name'] == false){
+        ?> <span>Votre nom ne peut pas être vide</span> <?php
+        } ?>
     </div>
     <div class="mb-3">
         <label for="firstName" class="form-label">Prénom</label>
@@ -35,19 +37,19 @@
     </div>
     <div class="mb-3">
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="demande_service" id="flexRadioDefault1">
+            <input class="form-check-input" type="radio" name="demande_service" value="=proposition_emploi" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
                 Proposition d'emploi
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="demande_service" id="flexRadioDefault2" checked>
+            <input class="form-check-input" type="radio" name="demande_service" value="demande_information" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
                 Demande d'information
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="demande_service" id="flexRadioDefault3" checked>
+            <input class="form-check-input" type="radio" name="demande_service" value="prestations" id="flexRadioDefault3" checked>
             <label class="form-check-label" for="flexRadioDefault3">
                 Prestations
             </label>

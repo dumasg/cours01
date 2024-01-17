@@ -5,28 +5,69 @@
     $date = date("Y_m_d_H_i_s");
     $filename = "../contact/contact_".$date.".txt";
     $formValad = true;
+    $dataClean = [];
+    $checkingError = [
+            "genre" => true,
+            "name" => true,
+            "firstName" => true,
+            "email" => true,
+            "demande_service" => true,
+            "message" => true
+    ];
+    $test = "test";
 ?>
 
 <main class="mainFormulaire">
 
 <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){?>
 
-    <?php 
-      $data = $_POST;
+    <?php
+    $data = $_POST;
+
+     //Dans cette section je nettoie les valeurs de l'utilisateur
       foreach ($data as $key => $value){
-          if($key == "email"){
-              if(!filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL)) {
+          if($key == "genre"){
+              $value = htmlspecialchars($value, ENT_QUOTES);
+              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+          }
+          if($key == "name" || $key == "firstName" || $key == "message") {
+              $value = htmlspecialchars($value);
+              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+          }
+          if ($key == "email"){
+              $dataClean[$key."Clean"] = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+          }
+          if ($key == "demande_service"){
+              $value = htmlspecialchars($value, ENT_QUOTES);
+              $dataClean[$key."Clean"] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+          }
+      }
+
+      // Dans cette partie je vérifie les données de l'utilisateur
+      foreach ($dataClean as $key => $value){
+          if ($key == "genreClean"){
+              if($value != "man" && $value != "woman"){
                   $formValad = false;
+                  $checkingError[$key] = false;
+              }
+
+          }elseif ($key == "name" || $key == "firstName" || $key == "message"){
+              if (empty($value)){
+                  $formValad = false;
+                  $checkingError[$key] = false;
               }
           }
-          if(empty($value)){
-              $formValad = false;
+          else if($key == "demande_service"){
+              if ($value != "proposition_emploi" && $value != "demande_information" && $value != "prestations"){
+                  $formValad = false;
+                  $checkingError[$key] = false;
+              }
           }
       }
       if($formValad){
           $status = file_put_contents($filename, $data);
           if($status){
-            ?>
+              ?>
               <div>
                   <h2>Merci pour la soumission de votre formulaire !</h2>
                   <p> Votre fichier est bien enregistré ! </p>
