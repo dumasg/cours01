@@ -38,22 +38,42 @@ if(!in_array($id_session, $usersVisited)) {
 //    array_push($userVisited, $id_session);
 //}
 
+$routerArray = [
+    "page",
+    "contact",
+    "hobby"
+];
 
 define('VIEW_PATH', "../pages/");
 
 $router = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
-$router = $router ?? 'cv';
-switch($router){
-    case 'cv':
-        require VIEW_PATH .'page.php';
-        break;
-    case 'contact':
-        require VIEW_PATH . 'contact.php' ;
-        break;
-    case 'hobbies':
-        require VIEW_PATH . 'hobby.php';
-        break;
-    default:
-        require VIEW_PATH . 'notfound.php';
-        break;
-    }
+$router = $router ?? "page";
+
+
+if(array_search($router, $routerArray) !== false){
+    $i = array_search($router, $routerArray);
+    require VIEW_PATH . $routerArray[$i] . ".php";
+}else{
+    require VIEW_PATH . "notfound.php";
+}
+
+
+
+
+//echo array_search("test", array_keys($arrayTest));
+
+
+//switch($router){
+//    case 'cv':
+//        require VIEW_PATH .'page.php';
+//        break;
+//    case 'contact':
+//        require VIEW_PATH . 'contact.php' ;
+//        break;
+//    case 'hobbies':
+//        require VIEW_PATH . 'hobby.php';
+//        break;
+//    default:
+//        require VIEW_PATH . 'notfound.php';
+//        break;
+//}

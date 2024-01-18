@@ -9,7 +9,7 @@
     if($pageCourant == "/" || $pageCourant == "/index.php"){
         $metaTitle = "CV Gérémy";
         $metaDescription = "CV DevOps Gérémy Alternant";
-    }else if($pageCourant == "/?page=hobbies"){
+    }else if($pageCourant == "/?page=hobby"){
         $metaTitle = "Mes hobbies";
         $metaDescription = "CV DevOps Gérémy Alternant hobbie loisir";
 
@@ -49,7 +49,7 @@
             <a class="nav-link active" aria-current="page" href="/">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/?page=hobbies">Hobby</a>
+            <a class="nav-link" href="/?page=hobby">Hobby</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/?page=contact">Contact</a>
