@@ -49,6 +49,8 @@ define('VIEW_PATH', "../pages/");
 $router = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 $router = $router ?? "page";
 
+ob_start();
+$render = "";
 
 if(array_search($router, $routerArray) !== false){
     $i = array_search($router, $routerArray);
@@ -57,6 +59,8 @@ if(array_search($router, $routerArray) !== false){
     require VIEW_PATH . "notfound.php";
 }
 
+$render = ob_get_clean();
+echo $render;
 
 
 
