@@ -16,23 +16,23 @@ while ( ($ligne = fgets($fichier)) !== false){
 
 //var_dump($usersVisited);
 
-if(!in_array($id_session, $usersVisited)) {
-    if (is_writable($fileSaveSession)) {
-        if (!$fp = fopen($fileSaveSession, 'a')) {
-            //echo "impossible de lire le fichier ($fileSaveSession)";
-            exit();
-        }
-
-        if (fwrite($fp, $id_session . PHP_EOL) === false) {
-          //  echo "Impossible d'écrire dans le fichier";
-        }
-
-        //echo "écriture ok ! ";
-        fclose($fp);
-    } else {
-        //echo "le fichier n'est pas accessible en écriture";
-    }
-}
+//if(!in_array($id_session, $usersVisited)) {
+//    if (is_writable($fileSaveSession)) {
+//        if (!$fp = fopen($fileSaveSession, 'a')) {
+//            //echo "impossible de lire le fichier ($fileSaveSession)";
+//            exit();
+//        }
+//
+//        if (fwrite($fp, $id_session . PHP_EOL) === false) {
+//          //  echo "Impossible d'écrire dans le fichier";
+//        }
+//
+//        //echo "écriture ok ! ";
+//        fclose($fp);
+//    } else {
+//        //echo "le fichier n'est pas accessible en écriture";
+//    }
+//}
 
 //if(!array_search($id_session, $userVisited)){
 //    array_push($userVisited, $id_session);
