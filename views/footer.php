@@ -7,7 +7,7 @@
         <li><a href="../sitemap.xml" class="text-white">Plan du site</a></li>
         <li><a href="../mentionlegales.html" class="text-white">Mention légales</a></li>
       </ul>
-        <p>Nous avez eu : <?= count($userVisited) ?> visites</p>
+        <p>Nous avez eu : <?= count($_SESSION['userSession']) ?> visites</p>
     </div>
   </footer>
 

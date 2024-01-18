@@ -1,13 +1,43 @@
 <?php
-
+$fileSaveSession = 'saveSession.txt';
+$usersVisited = [];
 
 session_start();
+$_SESSION['userSession'] = [];
 $id_session = session_id();
-$userVisited = [];
+array_push($_SESSION['userSession'], $id_session);
 
-if(!array_search($id_session, $userVisited)){
-    array_push($userVisited, $id_session);
+$fichier = fopen($fileSaveSession, 'r');
+$i = 0;
+while ( ($ligne = fgets($fichier)) !== false){
+    $usersVisited[$i] = $ligne;
+    $i++;
 }
+
+//var_dump($usersVisited);
+
+if(!in_array($id_session, $usersVisited)) {
+    if (is_writable($fileSaveSession)) {
+        if (!$fp = fopen($fileSaveSession, 'a')) {
+            //echo "impossible de lire le fichier ($fileSaveSession)";
+            exit();
+        }
+
+        if (fwrite($fp, $id_session . PHP_EOL) === false) {
+          //  echo "Impossible d'écrire dans le fichier";
+        }
+
+        //echo "écriture ok ! ";
+        fclose($fp);
+    } else {
+        //echo "le fichier n'est pas accessible en écriture";
+    }
+}
+
+//if(!array_search($id_session, $userVisited)){
+//    array_push($userVisited, $id_session);
+//}
+
 
 define('VIEW_PATH', "../pages/");
 
