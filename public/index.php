@@ -61,23 +61,3 @@ if(array_search($router, $routerArray) !== false){
 
 $render = ob_get_clean();
 echo $render;
-
-
-
-//echo array_search("test", array_keys($arrayTest));
-
-
-//switch($router){
-//    case 'cv':
-//        require VIEW_PATH .'page.php';
-//        break;
-//    case 'contact':
-//        require VIEW_PATH . 'contact.php' ;
-//        break;
-//    case 'hobbies':
-//        require VIEW_PATH . 'hobby.php';
-//        break;
-//    default:
-//        require VIEW_PATH . 'notfound.php';
-//        break;
-//}

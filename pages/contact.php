@@ -21,7 +21,19 @@
 
 <?php if($_SERVER['REQUEST_METHOD'] == 'POST'){?>
     <?php
-    $data = $_POST;
+    //$data = $_POST;
+    $args = array(
+            "name" => FILTER_SANITIZE_SPECIAL_CHARS,
+            "firstName" => FILTER_SANITIZE_SPECIAL_CHARS,
+            "email" => array(
+                    'filter' => FILTER_SANITIZE_EMAIL,
+                    'filter' => FILTER_VALIDATE_EMAIL
+            ),
+            "message" => FILTER_SANITIZE_SPECIAL_CHARS
+    );
+
+
+    $data = filter_input_array(INPUT_POST, $args);
 
      //Dans cette section je nettoie les valeurs de l'utilisateur
       foreach ($data as $key => $value){
