@@ -41,13 +41,13 @@ global$checkingError;
     </div>
     <div class="mb-3">
         <div class="form-check">
-            <input <?php if(isset($_SESSION['userForm']['demande_service']) && ($_SESSION['userForm']['demande_service'] === "proposition_emploi")){ echo "checked" ;} ?>  class="form-check-input" type="radio" name="demande_service" value="=proposition_emploi" id="flexRadioDefault1">
+            <input <?php if(isset($_SESSION['userForm']['demande_service']) && ($_SESSION['userForm']['demande_service'] === "emploi")){ echo "checked" ;} ?>  class="form-check-input" type="radio" name="demande_service" value="emploi" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
                 Proposition d'emploi
             </label>
         </div>
         <div class="form-check">
-            <input <?php if(isset($_SESSION['userForm']['demande_service']) && ($_SESSION['userForm']['demande_service'] === "demande_information")){ echo "checked" ;} ?> class="form-check-input" type="radio" name="demande_service" value="demande_information" id="flexRadioDefault2">
+            <input <?php if(isset($_SESSION['userForm']['demande_service']) && ($_SESSION['userForm']['demande_service'] === "information")){ echo "checked" ;} ?> class="form-check-input" type="radio" name="demande_service" value="information" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
                 Demande d'information
             </label>

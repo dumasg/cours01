@@ -74,7 +74,7 @@
               }
           }
           else if($key == "demande_service"){
-              if ($value == "proposition_emploi" || $value == "demande_information" || $value == "prestations"){
+              if (($value !== "emploi") && ($value !== "information") && ($value !== "prestations")){
                   $formValad = false;
                   $checkingError[$key] = false;
               }
