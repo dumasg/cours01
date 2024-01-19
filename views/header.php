@@ -56,5 +56,10 @@
           </li>
         </ul>
       </div>
+        <div>
+            <form action="../pages/destroy.php" method="post">
+                <button type="submit" class="btn btn-danger">Reset Session</button>
+            </form>
+        </div>
     </div>
   </nav>
