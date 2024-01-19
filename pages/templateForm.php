@@ -13,6 +13,9 @@ global$checkingError;
             <option value="man">Messieur</option>
             <option value="woman">Madame</option>
         </select>
+        <?php if($checkingError['genre'] == false) { ?>
+            <span>Votre genre ne peut être que Homme ou Femme !</span>
+        <?php } ?>
     </div>
     <div class="mb-3">
 

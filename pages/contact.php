@@ -23,41 +23,39 @@
     <?php
     //$data = $_POST;
     $args = array(
+            "genre" => FILTER_SANITIZE_SPECIAL_CHARS,
             "name" => FILTER_SANITIZE_SPECIAL_CHARS,
             "firstName" => FILTER_SANITIZE_SPECIAL_CHARS,
-            "email" => array(
-                    'filter' => FILTER_SANITIZE_EMAIL,
-                    'filter' => FILTER_VALIDATE_EMAIL
-            ),
+            "email" => FILTER_SANITIZE_EMAIL,
             "message" => FILTER_SANITIZE_SPECIAL_CHARS
     );
 
 
-    $data = filter_input_array(INPUT_POST, $args);
+    $dataClean = filter_input_array(INPUT_POST, $args);
 
      //Dans cette section je nettoie les valeurs de l'utilisateur
-      foreach ($data as $key => $value){
-          if($key == "genre"){
-              $value = htmlspecialchars($value, ENT_QUOTES);
-              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
-          }
-          if($key == "name" || $key == "firstName" || $key == "message") {
-              $value = htmlspecialchars($value);
-              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
-          }
-          if ($key == "email"){
-              $dataClean[$key] = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-          }
-          if ($key == "demande_service"){
-              $value = htmlspecialchars($value, ENT_QUOTES);
-              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
-          }
-      }
+//      foreach ($data as $key => $value){
+//          if($key == "genre"){
+//              $value = htmlspecialchars($value, ENT_QUOTES);
+//              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+//          }
+//          if($key == "name" || $key == "firstName" || $key == "message") {
+//              $value = htmlspecialchars($value);
+//              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+//          }
+//          if ($key == "email"){
+//              $dataClean[$key] = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+//          }
+//          if ($key == "demande_service"){
+//              $value = htmlspecialchars($value, ENT_QUOTES);
+//              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
+//          }
+//      }
 
       // Dans cette partie je vérifie les données de l'utilisateur
       foreach ($dataClean as $key => $value){
-          if ($key == "genreClean"){
-              if($value != "man" && $value != "woman"){
+          if ($key == "genre"){
+              if($value !== "man" && $value !== "woman"){
                   $formValad = false;
                   $checkingError[$key] = false;
               }
@@ -80,7 +78,7 @@
           }
       }
       if($formValad){
-          $status = file_put_contents($filename, $data);
+          $status = file_put_contents($filename, $dataClean);
           if($status){
               ?>
               <div>
