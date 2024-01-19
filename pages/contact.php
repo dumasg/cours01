@@ -27,6 +27,7 @@
             "name" => FILTER_SANITIZE_SPECIAL_CHARS,
             "firstName" => FILTER_SANITIZE_SPECIAL_CHARS,
             "email" => FILTER_SANITIZE_EMAIL,
+            "demande_service" => FILTER_SANITIZE_SPECIAL_CHARS,
             "message" => FILTER_SANITIZE_SPECIAL_CHARS
     );
 
@@ -51,7 +52,8 @@
 //              $dataClean[$key] = filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS);
 //          }
 //      }
-
+    $_SESSION['userForm'] = $dataClean;
+    //var_dump($_SESSION['userForm']);
       // Dans cette partie je vérifie les données de l'utilisateur
       foreach ($dataClean as $key => $value){
           if ($key == "genre"){
@@ -67,6 +69,7 @@
               }
           }elseif ($key == "email"){
               if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
+                  $formValad = false;
                   $checkingError[$key] = false;
               }
           }
@@ -79,6 +82,7 @@
       }
       if($formValad){
           $status = file_put_contents($filename, $dataClean);
+          $_SESSION['userForm'] = [];
           if($status){
               ?>
               <div>
