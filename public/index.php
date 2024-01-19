@@ -4,6 +4,10 @@ $usersVisited = [];
 
 session_start();
 $_SESSION['userSession'] = [];
+if(!isset($_SESSION['userForm'])){
+    $_SESSION['userForm'] = [];
+}
+
 $id_session = session_id();
 array_push($_SESSION['userSession'], $id_session);
 
